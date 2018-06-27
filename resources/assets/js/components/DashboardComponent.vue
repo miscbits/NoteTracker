@@ -14,6 +14,9 @@
             </div>
             <div class="col-md-8">
                 <div v-if="selectedStudent">
+                    <p> {{ selectedStudent.name }} </p>
+                </div>
+                <div v-if="selectedStudent">
                     <note-form @noteSubmitted="onSubmitNote" v-bind:student="selectedStudent"></note-form>
                 </div>
                 <div v-for="note in notes" class="card card-default">
