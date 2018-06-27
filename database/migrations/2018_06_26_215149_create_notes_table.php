@@ -17,7 +17,7 @@ class CreateNotesTable extends Migration
             $table->increments('id');
             $table->text("note");
             $table->integer("student_id");
-            $table->integer("user_id");
+            $table->integer("user_id")->nullable();
             $table->timestamps();
 
             $table->foreign("student_id")
@@ -25,8 +25,7 @@ class CreateNotesTable extends Migration
                 ->onDelete("cascade");
 
             $table->foreign("user_id")
-                ->references("id")->on("users")
-                ->onDelete("cascade");
+                ->references("id")->on("users");
         });
     }
 
